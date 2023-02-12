@@ -1,10 +1,10 @@
 * Spring 2023 - Lab 03
 
-* Last name:
+* Last name: Lin
 
-* First name:
+* First name: Ivy
 
-* GitHub username:
+* GitHub username: Ivyl8
 
 * Notes:
 
