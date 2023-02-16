@@ -5,7 +5,7 @@
 #include <string>
 #include "reservoir.h"
 
-//Task A
+//TASK A
 double get_east_storage(std::string date)
 {
   std::ifstream dataFile("Current_Reservoir_Levels.tsv");
@@ -31,7 +31,10 @@ double get_east_storage(std::string date)
 	return 0;
 }
 
+
+ 
 //TASK B
+//Min
  double get_min_east()
 {
   std::ifstream dataFile("Current_Reservoir_Levels.tsv");
@@ -43,20 +46,21 @@ double get_east_storage(std::string date)
   std::string junk;
   std::getline(dataFile, junk);
   //reading files
-  std::string entry_date, east_basin_storage;
-  double min_storage = INT_MAX;
-  while(dataFile >> entry_date >> east_basin_storage) {
-    if (date == entry_date) {
-      min_storage = std::min(min_storage, std::stold(east_basin_storage));
-    }
+ std::string date;
+	double eastSt;
+	double minStorage = INT_MAX;
 
-    dataFile.ignore(INT_MAX, '\n');
-  }
-
-  dataFile.close(); 
-  return min_storage;
+	while(dataFile >> date >> eastSt) {
+		dataFile.ignore(INT_MAX, '\n');
+		if (eastSt < minStorage) {
+			minStorage = eastSt;
+		}
+	}
+	dataFile.close();
+	return minStorage;
 }
 
+//Max
 double get_max_east()
 {
   std::ifstream dataFile("Current_Reservoir_Levels.tsv");
@@ -68,19 +72,17 @@ double get_max_east()
   std::string junk;
   std::getline(dataFile, junk);
   //reading files
-  std::string entry_date, east_basin_storage;
-  double max_storage = -1;
-  while(dataFile >> entry_date >> east_basin_storage) {
-    if (date == entry_date) {
-      max_storage = std::max(max_storage, std::stold(east_basin_storage));
-    }
+  std::string date;
+	double eastSt;
+	double maxStorage = 0;
 
-    dataFile.ignore(INT_MAX, '\n');
-  }
-
-  dataFile.close(); 
-  return max_storage;
+	while(dataFile >> date >> eastSt) {
+		dataFile.ignore(INT_MAX, '\n');
+		if (eastSt > maxStorage) {
+			maxStorage = eastSt;
+		}
+	}
+	dataFile.close();
+	return maxStorage;
 }
- 
-
- 
+  
