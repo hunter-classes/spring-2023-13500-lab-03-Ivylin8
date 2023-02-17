@@ -29,7 +29,7 @@ int main()
     std::cout << "02/03/2018 " << compare_basins("02/03/2018") << "\n";
     
     //Task D 
-    reverseorder("10/10/2018", "10/31/2018");
+    reverse_order("10/10/2018", "10/31/2018");
 
 return 0;
 }
